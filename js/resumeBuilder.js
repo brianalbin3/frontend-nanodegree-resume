@@ -25,7 +25,8 @@ var bio = {
   "contacts": {
     "mobile": "410-917-6440",
     "email": "brianalbin3@gmail.com",
-    "github": "https://github.com/brianalbin3/",
+    "github": "brianalbin3",
+    "linkedin": "https://www.linkedin.com/in/brian-albin-15666273",
     "location": "Austin, TX"
   },
   "skills": ["Java", "HTML5", "CSS3", "SQL", "JavaScript", "jQuery", "Bootstrap", "Linux", "Design Patterns", "OOP", "Git/Github", "Mercurial", "SVN", "C/C++", "Jython"],
@@ -42,45 +43,115 @@ var education = {
   ]
 };
 
-/*
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append( formattedName );
+bio.display = function() {
+  var formattedRole =  HTMLheaderRole.replace("%data%", this.role);
+  $("#header").prepend( formattedRole );
+	
+  var formattedName = HTMLheaderName.replace("%data%", this.name);
+  $("#header").prepend( formattedName );
+  
+  var formattedMobile = HTMLmobile.replace("%data%", this.contacts.mobile);
+  $("#topContacts").append(formattedMobile);
+  
+  var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
+  $("#topContacts").append(formattedEmail);
+  
+  var formattedGithub = HTMLgithub.replace("%data%", this.contacts.github);
+  $("#topContacts").append(formattedGithub);
+  
+  var formattedLinkedin = HTMLcontactGeneric.replace("%data%", this.contacts.linkedin).replace("%contact%", "linkedin");
+  $("#topContacts").append(formattedLinkedin);
+  
+  var formattedLocation = HTMLlocation.replace("%data%", this.contacts.location);
+  $("#topContacts").append(formattedLocation);
+  
+  var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+  $("#header").append(formattedWelcomeMessage);	
+  
+  var formattedBiopic = HTMLbioPic.replace("%data%", this.biopic);
+  $("#header").append(formattedBiopic);
+  
+  if ( this.skills.length > 0 ) {
+    $("#header").append(HTMLskillsStart);
 
-var formattedRole =  HTMLheaderRole.replace("%data%",bio.role);
-$("#header").append( formattedRole );
-*/
+    for (var i = 0; i < this.skills.length; i++ ) {
+      var currSkill = this.skills[i];
+      var formattedSkill = HTMLskills.replace("%data%", currSkill);
+      $("#skills").append( formattedSkill )
+    }
+  }
+}
 
-
-function displayWork() {
-  for (var i = 0; i < work.jobs.length; i++ ) {
+work.display = function() {
+  for (var i = 0; i < this.jobs.length; i++ ) {
     $("#workExperience").append(HTMLworkStart);
 
-    var job = work.jobs[i];
+    var job = this.jobs[i];
 
     var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
     var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
     var employerTitle = formattedEmployer + formattedTitle;
-    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-
     $(".work-entry:last").append(employerTitle);
+    
+    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
     $(".work-entry:last").append(formattedDates);
-    $(".work-entry:last").append(formattedLocation);
-    $(".work-entry:last").append(formattedDescription);
+    
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+    $(".work.entry:last").append(formattedLocation)
+    
+    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+    $(".work-entry:last").append(formattedDescription); 
   }
 }
 
-if ( bio.skills.length > 0 ) {
-  $("#header").append(HTMLskillsStart);
-
-  for (var i = 0; i < bio.skills.length; i++ ) {
-    var currSkill = bio.skills[i];
-    var formattedSkill = HTMLskills.replace("%data%", currSkill);
-    $("#skills").append( formattedSkill )
+projects.display = function() {
+  for (var i = 0; i < this.projects.length; i++ ) {
+    $("#projects").append(HTMLprojectStart);
+    
+    var project = this.projects[i];
+    
+    var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+    $(".project-entry:last").append(formattedTitle);
+    
+    var formattedDates = HTMLprojectDates.replace("%data%", project.dates );
+    $(".project-entry:last").append(formattedDates);
+    
+    var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+    $(".project-entry:last").append(formattedDescription);
+    
+    //TODO: Test when I have project Images
+    for (var j = 0; j < project.images.length; j++) {
+        var image = project.images[i];
+    	var formattedPicture = HTMLprojectImage.replace("%data%", image );
+    	$(".project-entry:last").append(formattedPicture);
+    }
   }
 }
 
 
+bio.display();
+work.display();
+projects.display();
 
-displayWork();
+function inName(name) {
+	var nameParts = name.trim().split(" ");
+	
+	var firstName = nameParts[0];
+	var lastName = nameParts[1];
+	
+	var formattedFirstName = firstName.toLowerCase();
+	var formattedFirstName = firstName.charAt(0).toUpperCase() + formattedFirstName.slice(1);
+	
+	var formattedLastName = lastName.toUpperCase();
+	
+	return formattedFirstName + " " + formattedLastName;
+}
+
+//TODO: PUT THIS IN A FUNCTION?
+$("#main").append(internationalizeButton);
+$("#mapDiv").append(googleMap);
+
+
+//TODO: STYLE CSS
+//TODO: d3js.org to add a neat chart
+//
