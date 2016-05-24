@@ -1,6 +1,4 @@
-// TODO: SKILLS FOR BIO
 // TODO: FINISH PROJECT DATES AND IMAGES
-// TODO: DO I NEED BIOPIC?
 
 var work = {
   "jobs": [
@@ -29,9 +27,9 @@ var bio = {
     "email": "brianalbin3@gmail.com",
     "github": "https://github.com/brianalbin3/",
     "location": "Austin, TX"
-  },    
-  "skills": [],
-  "bioPic": "images/brianalbin.jpg"
+  },
+  "skills": ["Java", "HTML5", "CSS3", "SQL", "JavaScript", "jQuery", "Bootstrap", "Linux", "Design Patterns", "OOP", "Git/Github", "Mercurial", "SVN", "C/C++", "Jython"],
+  "biopic": "images/brianalbin.jpg"
 };
 
 var education = {
@@ -42,4 +40,47 @@ var education = {
   "onlineCourses": [
     { "title": "Front-End Web Developer", "school": "Udacity", "dates": "May 2016 - Present", "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001" }
   ]
+};
+
+/*
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").append( formattedName );
+
+var formattedRole =  HTMLheaderRole.replace("%data%",bio.role);
+$("#header").append( formattedRole );
+*/
+
+
+function displayWork() {
+  for (var i = 0; i < work.jobs.length; i++ ) {
+    $("#workExperience").append(HTMLworkStart);
+
+    var job = work.jobs[i];
+
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+    var employerTitle = formattedEmployer + formattedTitle;
+    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+
+    $(".work-entry:last").append(employerTitle);
+    $(".work-entry:last").append(formattedDates);
+    $(".work-entry:last").append(formattedLocation);
+    $(".work-entry:last").append(formattedDescription);
+  }
 }
+
+if ( bio.skills.length > 0 ) {
+  $("#header").append(HTMLskillsStart);
+
+  for (var i = 0; i < bio.skills.length; i++ ) {
+    var currSkill = bio.skills[i];
+    var formattedSkill = HTMLskills.replace("%data%", currSkill);
+    $("#skills").append( formattedSkill )
+  }
+}
+
+
+
+displayWork();
