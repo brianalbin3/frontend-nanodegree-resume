@@ -46,31 +46,31 @@ var education = {
 bio.display = function() {
   var formattedRole =  HTMLheaderRole.replace("%data%", this.role);
   $("#header").prepend( formattedRole );
-	
+
   var formattedName = HTMLheaderName.replace("%data%", this.name);
   $("#header").prepend( formattedName );
-  
+
   var formattedMobile = HTMLmobile.replace("%data%", this.contacts.mobile);
   $("#topContacts").append(formattedMobile);
-  
+
   var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
   $("#topContacts").append(formattedEmail);
-  
+
   var formattedGithub = HTMLgithub.replace("%data%", this.contacts.github);
   $("#topContacts").append(formattedGithub);
-  
+
   var formattedLinkedin = HTMLcontactGeneric.replace("%data%", this.contacts.linkedin).replace("%contact%", "linkedin");
   $("#topContacts").append(formattedLinkedin);
-  
+
   var formattedLocation = HTMLlocation.replace("%data%", this.contacts.location);
   $("#topContacts").append(formattedLocation);
-  
+
   var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-  $("#header").append(formattedWelcomeMessage);	
-  
+  $("#header").append(formattedWelcomeMessage);
+
   var formattedBiopic = HTMLbioPic.replace("%data%", this.biopic);
   $("#header").append(formattedBiopic);
-  
+
   if ( this.skills.length > 0 ) {
     $("#header").append(HTMLskillsStart);
 
@@ -92,33 +92,33 @@ work.display = function() {
     var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
     var employerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(employerTitle);
-    
+
     var formattedDates = HTMLworkDates.replace("%data%", job.dates);
     $(".work-entry:last").append(formattedDates);
-    
+
     var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
     $(".work.entry:last").append(formattedLocation)
-    
+
     var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-    $(".work-entry:last").append(formattedDescription); 
+    $(".work-entry:last").append(formattedDescription);
   }
 }
 
 projects.display = function() {
   for (var i = 0; i < this.projects.length; i++ ) {
     $("#projects").append(HTMLprojectStart);
-    
+
     var project = this.projects[i];
-    
+
     var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
     $(".project-entry:last").append(formattedTitle);
-    
+
     var formattedDates = HTMLprojectDates.replace("%data%", project.dates );
     $(".project-entry:last").append(formattedDates);
-    
+
     var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
     $(".project-entry:last").append(formattedDescription);
-    
+
     //TODO: Test when I have project Images
     for (var j = 0; j < project.images.length; j++) {
         var image = project.images[i];
@@ -128,28 +128,97 @@ projects.display = function() {
   }
 }
 
+education.display = function() {
+
+  for (var i = 0; i < this.schools.length; i++ ) {
+    $("#education").append(HTMLschoolStart);
+
+    var school = this.schools[i];
+
+    var formattedName = HTMLschoolName.replace("%data%", school.name);
+    var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
+    $(".education-entry:last").append(formattedName + formattedDegree);
+
+    var formatedDates = HTMLschoolDates.replace("%data%", school.dates);
+    $(".education-entry:last").append(formatedDates);
+
+    var formatedLocation = HTMLschoolLocation.replace("%data%", school.location);
+    $(".education-entry:last").append(formatedLocation);
+
+    for (var j = 0; j < school.majors.length; j++) {
+      var major = school.majors[j];
+      var formattedMajor = HTMLschoolMajor.replace("%data%", major);
+      $(".education-entry:last").append(formattedMajor);
+    }
+
+    var formattedURL = HTMLonlineURL.replace("%data%", school.url);
+    $(".education-entry:last").append(formattedURL);
+  }
+
+  if ( this.onlineCourses.length > 0 ) {
+    $("#education").append(HTMLonlineClasses);
+
+    for (var i = 0; i < this.onlineCourses.length; i++) {
+
+      $("#education").append(HTMLschoolStart);
+
+      var onlineCourse = this.onlineCourses[i];
+
+      var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
+      var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+      $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+
+      var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+      $(".education-entry:last").append( formattedOnlineDates );
+
+      var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url);
+      $(".education-entry:last").append(formattedOnlineURL);
+    }
+  }
+}
+
+//TODO: Put each function below JSON
 
 bio.display();
 work.display();
 projects.display();
+education.display();
+//TODO: that last titlebar thing
 
 function inName(name) {
 	var nameParts = name.trim().split(" ");
-	
+
 	var firstName = nameParts[0];
 	var lastName = nameParts[1];
-	
+
 	var formattedFirstName = firstName.toLowerCase();
 	var formattedFirstName = firstName.charAt(0).toUpperCase() + formattedFirstName.slice(1);
-	
+
 	var formattedLastName = lastName.toUpperCase();
-	
+
 	return formattedFirstName + " " + formattedLastName;
 }
 
 //TODO: PUT THIS IN A FUNCTION?
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
+
+
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#footerContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#footerContacts").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#footerContacts").append(formattedGithub);
+
+var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bio.contacts.linkedin).replace("%contact%", "linkedin");
+$("#footerContacts").append(formattedLinkedin);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#footerContacts").append(formattedLocation);
 
 
 //TODO: STYLE CSS
