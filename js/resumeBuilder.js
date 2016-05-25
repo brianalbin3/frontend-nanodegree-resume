@@ -183,7 +183,6 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-//TODO: that last titlebar thing
 
 function inName(name) {
 	var nameParts = name.trim().split(" ");
