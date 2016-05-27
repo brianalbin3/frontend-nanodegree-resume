@@ -1,5 +1,4 @@
-// TODO: FINISH PROJECT DATES AND IMAGES
-
+// TODO: FINISH PROJECT IMAGES
 
 var bio = {
   "name": "Brian Albin",
@@ -45,10 +44,10 @@ var bio = {
 	         if ( this.skills.length > 0 ) {
 	           $("#header").append(HTMLskillsStart);
 
-	           for (var i = 0; i < this.skills.length; i++ ) {
-	             var currSkill = this.skills[i];
+	           for (var index = 0; index < this.skills.length; index++ ) {
+	             var currSkill = this.skills[index];
 	             var formattedSkill = HTMLskills.replace("%data%", currSkill);
-	             $("#skills").append( formattedSkill )
+	             $("#skills").append( formattedSkill );
 	           }
 	         }
            }
@@ -77,7 +76,7 @@ var work = {
 		      $(".work-entry:last").append(formattedDates);
 
 		      var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-		      $(".work.entry:last").append(formattedLocation)
+		      $(".work.entry:last").append(formattedLocation);
 
 		      var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
 		      $(".work-entry:last").append(formattedDescription);
@@ -87,8 +86,8 @@ var work = {
 
 var projects = {
   "projects": [
-    { "title": "Master-Sword: Source",  "dates": "", "description": "Master-Sword: Source is a mod created using the Source Engine by a small team including myself. Although the mod was never finished, a number of features were implemented including multiple enemies, a GUI based heads up display, melee weapons with advanced collision detection, and a character selection menu. The project was written entirely in C++. I was the team leader as well as a programmer. The project team consisted of programmers, level artists, musicians, character modeler designers, and an animate. The mod can be seen at http://www.moddb.com/mods/master-sword-source. Unfortunately, all of the code was lost except for one image button class I posted on a developer wiki.", images: [] },
-    { "title": "IRC Bot",  "dates": "", "description": "The irc bot was written in Java and would reply to users in an IRC channel when they said certain things.", images: [] },
+    { "title": "Master-Sword: Source",  "dates": "2009-2010", "description": "Master-Sword: Source is a mod created using the Source Engine by a small team including myself. Although the mod was never finished, a number of features were implemented including multiple enemies, a GUI based heads up display, melee weapons with advanced collision detection, and a character selection menu. The project was written entirely in C++. I was the team leader as well as a programmer. The project team consisted of programmers, level artists, musicians, character modeler designers, and an animate. The mod can be seen at http://www.moddb.com/mods/master-sword-source. Unfortunately, all of the code was lost except for one image button class I posted on a developer wiki.", images: [] },
+    { "title": "IRC Bot",  "dates": "June 2013", "description": "The irc bot was written in Java and would reply to users in an IRC channel when they said certain things.", images: [] },
     { "title": "Portfolio Web Site",  "dates": "May 2015", "description": "I worked on a portfolio website which showcased projects I worked on. The web site made use of responsive design to work well on desktop computers, tablet computers, and mobile phones.", images: [] },
   ],
   display: function () {
@@ -106,11 +105,10 @@ var projects = {
 		       var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
 		       $(".project-entry:last").append(formattedDescription);
 
-		       //TODO: Test when I have project Images
 		       for (var j = 0; j < project.images.length; j++) {
 		         var image = project.images[i];
-		    	 var formattedPicture = HTMLprojectImage.replace("%data%", image );
-		    	 $(".project-entry:last").append(formattedPicture);
+		    	   var formattedPicture = HTMLprojectImage.replace("%data%", image );
+		    	   $(".project-entry:last").append(formattedPicture);
 		       }
 		     }
            }
@@ -172,47 +170,37 @@ var education = {
 	       }
 };
 
+var map = {
+  display: function() {
+    $("#main").append(internationalizeButton);
+    $("#mapDiv").append(googleMap);
+  }
+};
+
+var footer = {
+  display: function() {
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#footerContacts").append(formattedMobile);
+
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#footerContacts").append(formattedEmail);
+
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#footerContacts").append(formattedGithub);
+
+    var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bio.contacts.linkedin).replace("%contact%", "linkedin");
+    $("#footerContacts").append(formattedLinkedin);
+
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#footerContacts").append(formattedLocation);
+  }
+};
 
 bio.display();
 work.display();
 projects.display();
 education.display();
+map.display();
+footer.display();
 
-function inName(name) {
-	var nameParts = name.trim().split(" ");
-
-	var firstName = nameParts[0];
-	var lastName = nameParts[1];
-
-	var formattedFirstName = firstName.toLowerCase();
-	var formattedFirstName = firstName.charAt(0).toUpperCase() + formattedFirstName.slice(1);
-
-	var formattedLastName = lastName.toUpperCase();
-
-	return formattedFirstName + " " + formattedLastName;
-}
-
-//TODO: PUT THIS IN A FUNCTION?
-$("#main").append(internationalizeButton);
-$("#mapDiv").append(googleMap);
-
-
-//TODO: PUT THIS IN A FUNCTION?
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#footerContacts").append(formattedMobile);
-
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#footerContacts").append(formattedEmail);
-
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#footerContacts").append(formattedGithub);
-
-var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bio.contacts.linkedin).replace("%contact%", "linkedin");
-$("#footerContacts").append(formattedLinkedin);
-
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#footerContacts").append(formattedLocation);
-
-
-//TODO: STYLE CSS - especially internationalize button
-//TODO: d3js.org to add a neat chart
+//TODO: d3js.org to add a neat chart - wait till I can do android development and maybe iOS before doing this

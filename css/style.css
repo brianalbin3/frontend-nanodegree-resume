@@ -9,9 +9,9 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
 .clear-fix {
@@ -26,7 +26,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #F8981C;
   line-height: 48px;
   display: inline;
 }
@@ -34,9 +34,10 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: black;
   line-height: 29px;
   padding: 10px;
+  text-align: center;
 }
 
 h3 {
@@ -57,15 +58,13 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 5%;
 }
-
 
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: black;
   line-height: 16px;
   float: left;
 }
@@ -73,10 +72,9 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: white;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -100,16 +98,17 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #F8981C;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #F8981C;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #F8981C;
+  font-weight: bolder;
 }
 
 .white-text {
@@ -120,16 +119,15 @@ a {
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .dark-gray {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #02B3E4;
 }
 
 .flex-box {
@@ -147,13 +145,17 @@ a {
 
 ul {
   list-style-type: none;
+  background-color: #02B3E4;
 }
 
 .biopic {
   float: left;
   padding: 10px;
   width: 200px;
+  height: 200px;
   display: none;
+  border-radius: 200px;
+  background-color: #F8981C;
 }
 
 img {
@@ -162,36 +164,84 @@ img {
 
 span {
   padding: 5px;
+  color: white;
 }
 
 #lets-connect {
   text-align: center;
 }
 
+button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #fff6af;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #fff6af;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #F8981C));
+  background: -moz-linear-gradient(top, #ffec64 5%, #F8981C 100%);
+  background: -webkit-linear-gradient(top, #ffec64 5%, #F8981C 100%);
+  background: -o-linear-gradient(top, #ffec64 5%, #F8981C 100%);
+  background: -ms-linear-gradient(top, #ffec64 5%, #F8981C 100%);
+  background: linear-gradient(to bottom, #ffec64 5%, #F8981C 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#F8981C',GradientType=0);
+  background-color: #ffec64;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 2px 0px #ffee66;
+  width: 100%;
+}
+
+button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #F8981C), color-stop(1, #ffec64));
+  background: -moz-linear-gradient(top, #F8981C 5%, #ffec64 100%);
+  background: -webkit-linear-gradient(top, #F8981C 5%, #ffec64 100%);
+  background: -o-linear-gradient(top, #F8981C 5%, #ffec64 100%);
+  background: -ms-linear-gradient(top, #F8981C 5%, #ffec64 100%);
+  background: linear-gradient(to bottom, #F8981C 5%, #ffec64 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8981C', endColorstr='#ffec64',GradientType=0);
+  background-color: #F8981C;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+}
+
+
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
   #lets-connect {
     margin-top: 5%;
-  }
+  };
 }
 
 @media only screen and (max-width:900px) {
   .biopic {
     width: 175px;
-  }
+  };
 }
 
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
   }
+
   .biopic {
     width: 150px;
   }
+
   .welcome-message {
     display: none;
-  }
+  };
 }
 
 #map {
@@ -210,5 +260,5 @@ span {
   #skills-h3,
   .biopic {
     display: block;
-  }
+  };
 }
