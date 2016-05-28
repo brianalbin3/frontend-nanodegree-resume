@@ -72,7 +72,7 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: white;
+  color: black;
   line-height: 16px;
   float: right;
 }
@@ -159,7 +159,9 @@ ul {
 }
 
 img {
-  padding: 10px;
+  margin: 10px 30px 10px 0;
+  max-width: 100%;
+  height: 225px;
 }
 
 span {

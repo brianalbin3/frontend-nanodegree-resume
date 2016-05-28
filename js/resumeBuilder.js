@@ -1,5 +1,3 @@
-// TODO: FINISH PROJECT IMAGES
-
 var bio = {
   "name": "Brian Albin",
   "role" : "Mobile Developer",
@@ -14,42 +12,42 @@ var bio = {
   "skills": ["Java", "HTML5", "CSS3", "SQL", "JavaScript", "jQuery", "Bootstrap", "Linux", "Design Patterns", "OOP", "Git/Github", "Mercurial", "SVN", "C/C++", "Jython"],
   "biopic": "images/brianalbin.jpg",
   display: function() {
-	         var formattedRole =  HTMLheaderRole.replace("%data%", this.role);
-	         $("#header").prepend( formattedRole );
+	           var formattedRole =  HTMLheaderRole.replace("%data%", this.role);
+	           $("#header").prepend( formattedRole );
 
-	         var formattedName = HTMLheaderName.replace("%data%", this.name);
-	         $("#header").prepend( formattedName );
+	           var formattedName = HTMLheaderName.replace("%data%", this.name);
+	           $("#header").prepend( formattedName );
 
-	         var formattedMobile = HTMLmobile.replace("%data%", this.contacts.mobile);
-	         $("#topContacts").append(formattedMobile);
+	           var formattedMobile = HTMLmobile.replace("%data%", this.contacts.mobile);
+	           $("#topContacts").append(formattedMobile);
 
-	         var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
-	         $("#topContacts").append(formattedEmail);
+	           var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
+	           $("#topContacts").append(formattedEmail);
 
-	         var formattedGithub = HTMLgithub.replace("%data%", this.contacts.github);
-	         $("#topContacts").append(formattedGithub);
+	           var formattedGithub = HTMLgithub.replace("%data%", this.contacts.github);
+	           $("#topContacts").append(formattedGithub);
 
-	         var formattedLinkedin = HTMLcontactGeneric.replace("%data%", this.contacts.linkedin).replace("%contact%", "linkedin");
-	         $("#topContacts").append(formattedLinkedin);
+	           var formattedLinkedin = HTMLcontactGeneric.replace("%data%", this.contacts.linkedin).replace("%contact%", "linkedin");
+	           $("#topContacts").append(formattedLinkedin);
 
-	         var formattedLocation = HTMLlocation.replace("%data%", this.contacts.location);
-	         $("#topContacts").append(formattedLocation);
+	           var formattedLocation = HTMLlocation.replace("%data%", this.contacts.location);
+	           $("#topContacts").append(formattedLocation);
 
-	         var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-	         $("#header").append(formattedWelcomeMessage);
+	           var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+	           $("#header").append(formattedWelcomeMessage);
 
-	         var formattedBiopic = HTMLbioPic.replace("%data%", this.biopic);
-	         $("#header").append(formattedBiopic);
+	           var formattedBiopic = HTMLbioPic.replace("%data%", this.biopic);
+	           $("#header").append(formattedBiopic);
 
-	         if ( this.skills.length > 0 ) {
-	           $("#header").append(HTMLskillsStart);
+	           if ( this.skills.length > 0 ) {
+	             $("#header").append(HTMLskillsStart);
 
-	           for (var index = 0; index < this.skills.length; index++ ) {
-	             var currSkill = this.skills[index];
-	             var formattedSkill = HTMLskills.replace("%data%", currSkill);
-	             $("#skills").append( formattedSkill );
+	             for (var index = 0; index < this.skills.length; index++ ) {
+	               var currSkill = this.skills[index];
+	               var formattedSkill = HTMLskills.replace("%data%", currSkill);
+	               $("#skills").append( formattedSkill );
+	             }
 	           }
-	         }
            }
 };
 
@@ -62,55 +60,55 @@ var work = {
     { "employer": "Social Security Administration", "title": "Student Intern Programmer", "location": "Baltimore, MD", "dates": "Jun 2009 - Aug 2009", "description": "Assisted in the linking of biometric security software to existing government systems in order to protect SSA assets. Assisted in designing and programming internal websites. I used JavaScript, HTML, CSS, PHP, MySQL, and C during this internship." }
   ],
   display: function() {
-	         for (var i = 0; i < this.jobs.length; i++ ) {
-		      $("#workExperience").append(HTMLworkStart);
+	           for (var i = 0; i < this.jobs.length; i++ ) {
+		           $("#workExperience").append(HTMLworkStart);
 
-		      var job = this.jobs[i];
+		          var job = this.jobs[i];
 
-		      var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-		      var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
-		      var employerTitle = formattedEmployer + formattedTitle;
-		      $(".work-entry:last").append(employerTitle);
+		          var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+		          var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+		          var employerTitle = formattedEmployer + formattedTitle;
+		          $(".work-entry:last").append(employerTitle);
 
-		      var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-		      $(".work-entry:last").append(formattedDates);
+		          var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+		          $(".work-entry:last").append(formattedDates);
 
-		      var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-		      $(".work.entry:last").append(formattedLocation);
+		          var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+		          $(".work-entry:last").append(formattedLocation);
 
-		      var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-		      $(".work-entry:last").append(formattedDescription);
-		    }
+		          var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+		          $(".work-entry:last").append(formattedDescription);
+		        }
 		  }
 };
 
 var projects = {
   "projects": [
-    { "title": "Master-Sword: Source",  "dates": "2009-2010", "description": "Master-Sword: Source is a mod created using the Source Engine by a small team including myself. Although the mod was never finished, a number of features were implemented including multiple enemies, a GUI based heads up display, melee weapons with advanced collision detection, and a character selection menu. The project was written entirely in C++. I was the team leader as well as a programmer. The project team consisted of programmers, level artists, musicians, character modeler designers, and an animate. The mod can be seen at http://www.moddb.com/mods/master-sword-source. Unfortunately, all of the code was lost except for one image button class I posted on a developer wiki.", images: [] },
-    { "title": "IRC Bot",  "dates": "June 2013", "description": "The irc bot was written in Java and would reply to users in an IRC channel when they said certain things.", images: [] },
-    { "title": "Portfolio Web Site",  "dates": "May 2015", "description": "I worked on a portfolio website which showcased projects I worked on. The web site made use of responsive design to work well on desktop computers, tablet computers, and mobile phones.", images: [] },
+    { "title": "Master-Sword: Source",  "dates": "2009-2010", "description": "Master-Sword: Source is a mod created using the Source Engine by a small team including myself. Although the mod was never finished, a number of features were implemented including multiple enemies, a GUI based heads up display, melee weapons with advanced collision detection, and a character selection menu. The project was written entirely in C++. I was the team leader as well as a programmer. The project team consisted of programmers, level artists, musicians, character modeler designers, and an animate. The mod can be seen at http://www.moddb.com/mods/master-sword-source. Unfortunately, all of the code was lost except for one image button class I posted on a developer wiki.", images: ["images/mss_projectimage1.jpg", "images/mss_projectimage2.jpg"] },
+    { "title": "IRC Bot",  "dates": "June 2013", "description": "The irc bot was written in Java and would reply to users in an IRC channel when they said certain things.", images: ["images/ircbot_projectimage1.png", "images/ircbot_projectimage2.png"] },
+    { "title": "Portfolio Web Site",  "dates": "May 2015", "description": "I worked on a portfolio website which showcased projects I worked on. The web site made use of responsive design to work well on desktop computers, tablet computers, and mobile phones.", images: ["images/portfoliosite_projectimage1.jpg", "images/portfoliosite_projectimage2.jpg"] },
   ],
   display: function () {
-	         for (var i = 0; i < this.projects.length; i++ ) {
-		       $("#projects").append(HTMLprojectStart);
+	           for (var i = 0; i < this.projects.length; i++ ) {
+		           $("#projects").append(HTMLprojectStart);
 
-		       var project = this.projects[i];
+		           var project = this.projects[i];
 
-		       var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
-  		       $(".project-entry:last").append(formattedTitle);
+		           var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+    		       $(".project-entry:last").append(formattedTitle);
 
-		       var formattedDates = HTMLprojectDates.replace("%data%", project.dates );
-		       $(".project-entry:last").append(formattedDates);
+	    	       var formattedDates = HTMLprojectDates.replace("%data%", project.dates );
+		           $(".project-entry:last").append(formattedDates);
 
-		       var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
-		       $(".project-entry:last").append(formattedDescription);
+		           var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+		           $(".project-entry:last").append(formattedDescription);
 
-		       for (var j = 0; j < project.images.length; j++) {
-		         var image = project.images[i];
-		    	   var formattedPicture = HTMLprojectImage.replace("%data%", image );
-		    	   $(".project-entry:last").append(formattedPicture);
-		       }
-		     }
+		           for (var j = 0; j < project.images.length; j++) {
+		             var image = project.images[j];
+		    	       var formattedPicture = HTMLprojectImage.replace("%data%", image);
+		    	       $(".project-entry:last").append(formattedPicture);
+		           }
+		         }
            }
 };
 
@@ -123,51 +121,51 @@ var education = {
     { "title": "Front-End Web Developer", "school": "Udacity", "dates": "May 2016 - Present", "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001" }
   ],
   display: function() {
-	         for (var i = 0; i < this.schools.length; i++ ) {
-	           $("#education").append(HTMLschoolStart);
-
-	           var school = this.schools[i];
-
-	           var formattedName = HTMLschoolName.replace("%data%", school.name);
-	           var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
-	           $(".education-entry:last").append(formattedName + formattedDegree);
-
-	           var formatedDates = HTMLschoolDates.replace("%data%", school.dates);
-	           $(".education-entry:last").append(formatedDates);
-
-	           var formatedLocation = HTMLschoolLocation.replace("%data%", school.location);
-	           $(".education-entry:last").append(formatedLocation);
-
-	           for (var j = 0; j < school.majors.length; j++) {
-	             var major = school.majors[j];
-	             var formattedMajor = HTMLschoolMajor.replace("%data%", major);
-	             $(".education-entry:last").append(formattedMajor);
-	           }
-
-	           var formattedURL = HTMLonlineURL.replace("%data%", school.url);
-	           $(".education-entry:last").append(formattedURL);
-	         }
-
-	         if ( this.onlineCourses.length > 0 ) {
-	           $("#education").append(HTMLonlineClasses);
-
-	           for (var i = 0; i < this.onlineCourses.length; i++) {
+	           for (var i = 0; i < this.schools.length; i++ ) {
 	             $("#education").append(HTMLschoolStart);
 
-	             var onlineCourse = this.onlineCourses[i];
+	             var school = this.schools[i];
 
-	             var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
-	             var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
-	             $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+	             var formattedName = HTMLschoolName.replace("%data%", school.name);
+	             var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
+	             $(".education-entry:last").append(formattedName + formattedDegree);
 
-	             var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
-	             $(".education-entry:last").append( formattedOnlineDates );
+	             var formatedDates = HTMLschoolDates.replace("%data%", school.dates);
+	             $(".education-entry:last").append(formatedDates);
 
-	             var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url);
-	             $(".education-entry:last").append(formattedOnlineURL);
+	             var formatedLocation = HTMLschoolLocation.replace("%data%", school.location);
+	             $(".education-entry:last").append(formatedLocation);
+
+	             for (var j = 0; j < school.majors.length; j++) {
+	               var major = school.majors[j];
+	               var formattedMajor = HTMLschoolMajor.replace("%data%", major);
+	               $(".education-entry:last").append(formattedMajor);
+	             }
+
+	             var formattedURL = HTMLonlineURL.replace("%data%", school.url);
+	             $(".education-entry:last").append(formattedURL);
+	           }
+
+	           if ( this.onlineCourses.length > 0 ) {
+	             $("#education").append(HTMLonlineClasses);
+
+	             for (var i = 0; i < this.onlineCourses.length; i++) {
+	               $("#education").append(HTMLschoolStart);
+
+	               var onlineCourse = this.onlineCourses[i];
+
+	               var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
+	               var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+	               $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+
+	               var formattedOnlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+	               $(".education-entry:last").append( formattedOnlineDates );
+
+	               var formattedOnlineURL = HTMLonlineURL.replace("%data%", onlineCourse.url);
+	               $(".education-entry:last").append(formattedOnlineURL);
+	             }
 	           }
 	         }
-	       }
 };
 
 var map = {
