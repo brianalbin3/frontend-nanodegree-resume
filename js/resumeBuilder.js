@@ -9,7 +9,7 @@ var bio = {
     "linkedin": "https://www.linkedin.com/in/brian-albin-15666273",
     "location": "Austin, TX"
   },
-  "skills": ["Java", "HTML5", "CSS3", "SQL", "JavaScript", "jQuery", "Bootstrap", "Linux", "Design Patterns", "OOP", "Git/Github", "Mercurial", "SVN", "C/C++", "Jython"],
+  "skills": ["Java", "HTML5", "CSS3", "SQL", "JavaScript", "jQuery", "Bootstrap", "Linux", "Design Patterns", "OOP", "Git/Github", "Responsive Design", "JSP", "C/C++"],
   "biopic": "images/brianalbin.jpg",
   display: function() {
 	           var formattedRole =  HTMLheaderRole.replace("%data%", this.role);
