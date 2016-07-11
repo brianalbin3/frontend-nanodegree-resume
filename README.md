@@ -10,4 +10,4 @@ Download from [here](https://github.com/brianalbin3/frontend-nanodegree-resume) 
 
 ## Screenshot
 
-![Screenshot](https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13599878_825203060950684_623567262845028305_n.jpg?oh=51ad3ea3666e46df471adae8cc2d8f33&oe=5826B699)
+![Screenshot](https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13645303_825203127617344_4358450886900528445_n.jpg?oh=4d29b9a8c7a19bfba98c1bea52226f9e&oe=582D908A)
