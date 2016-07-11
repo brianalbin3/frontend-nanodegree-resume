@@ -201,4 +201,4 @@ education.display();
 map.display();
 footer.display();
 
-//TODO: d3js.org to add a neat chart - wait till I can do android development and maybe iOS before doing this
+//TODO: d3js.org to add a neat chart
