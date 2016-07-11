@@ -1,6 +1,6 @@
 var bio = {
   "name": "Brian Albin",
-  "role" : "Mobile Developer",
+  "role" : "Full Stack Developer",
   "welcomeMessage": "Welcome to my resume page!",
   "contacts": {
     "mobile": "410-917-6440",
